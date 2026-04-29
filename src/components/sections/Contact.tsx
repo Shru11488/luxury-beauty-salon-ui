@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-b from-[#F8F7F4] to-white overflow-hidden">
-      {/* subtle background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-rose-100 blur-3xl opacity-40 rounded-full" />
+    <section className="relative py-24 px-6 bg-[#ECE7E1] overflow-hidden">
+      {/* subtle background glow (updated color) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#D4AF37]/20 blur-3xl opacity-40 rounded-full" />
 
       <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* LEFT INFO */}
@@ -18,7 +18,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-rose-500 font-semibold tracking-widest mb-2">
+          <p className="text-[#D4AF37] font-semibold tracking-[0.2em] mb-2">
             VISIT OUR SALON
           </p>
 
@@ -55,7 +55,7 @@ export default function Contact() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="bg-white/70 backdrop-blur-xl p-10 rounded-3xl shadow-2xl border border-white/40"
+          className="bg-[#FAF8F5] p-10 rounded-3xl shadow-xl border border-gray-200"
         >
           <h3 className="text-2xl font-semibold mb-6 text-center">
             Book Your Appointment
@@ -65,12 +65,13 @@ export default function Contact() {
             <Input placeholder="Your Name" className="h-12 text-base" />
             <Input placeholder="Email Address" className="h-12 text-base" />
             <Input placeholder="Phone Number" className="h-12 text-base" />
+
             <Textarea
               placeholder="Tell us about your service..."
               className="min-h-[120px] text-base"
             />
 
-            <Button className="w-full h-12 text-base bg-black text-white rounded-xl hover:bg-gray-900 transition-all duration-300">
+            <Button className="w-full h-12 text-base bg-[#D4AF37] text-black rounded-xl hover:scale-105 transition">
               Send Enquiry
             </Button>
           </div>

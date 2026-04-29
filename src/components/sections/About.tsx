@@ -19,74 +19,81 @@ const hours: Hours[] = [
 
 export default function About() {
   return (
-    <section className="grid md:grid-cols-2 gap-14 px-8 py-24 max-w-7xl mx-auto">
-      {/* LEFT CONTENT */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <p className="text-sm text-rose-500 font-semibold mb-2">ABOUT US</p>
+    <section className="bg-[#ECE7E1] py-24 px-6 md:px-10">
+      <div className="grid md:grid-cols-2 gap-14 max-w-7xl mx-auto">
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-sm text-[#D4AF37] tracking-[0.2em] mb-3">
+            ABOUT US
+          </p>
 
-        <h2 className="text-5xl font-serif mb-6 leading-tight">
-          Experience Luxury Beauty & Wellness
-        </h2>
+          <h2 className="text-5xl font-serif mb-6 leading-tight">
+            Experience Luxury Beauty & Wellness
+          </h2>
 
-        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-          Located in the heart of London, our salon offers a refined blend of
-          beauty, wellness, and relaxation. We specialise in premium treatments
-          tailored to enhance your natural elegance.
-        </p>
+          <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+            Located in the heart of London, our salon offers a refined blend of
+            beauty, wellness, and relaxation. We specialise in premium
+            treatments tailored to enhance your natural elegance.
+          </p>
 
-        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-          Our team of certified professionals uses only high-end, organic
-          products to ensure exceptional results while maintaining the highest
-          standards of hygiene and care.
-        </p>
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            Our team of certified professionals uses only high-end, organic
+            products to ensure exceptional results while maintaining the highest
+            standards of hygiene and care.
+          </p>
 
-        {/* USP Highlights */}
-        <div className="grid grid-cols-2 gap-5 text-sm">
-          {[
-            "✨ 10+ Years Experience",
-            "💆 5-Star Rated Services",
-            "🌿 Organic Products Only",
-            "👩‍🎨 Expert Stylists",
-          ].map((item, i) => (
+          {/* USP Highlights */}
+          <div className="grid grid-cols-2 gap-5 text-sm">
+            {[
+              "✨ 10+ Years Experience",
+              "💆 5-Star Rated Services",
+              "🌿 Organic Products Only",
+              "👩‍🎨 Expert Stylists",
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="
+                  p-5 rounded-xl 
+                  bg-[#FAF8F5] border border-gray-200 shadow-sm
+                  transition-all duration-300 
+                  hover:shadow-xl 
+                  hover:-translate-y-1 
+                  hover:bg-[#D4AF37] 
+                  hover:text-black
+                  cursor-pointer
+                "
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* RIGHT CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="bg-[#FAF8F5] border border-gray-200 p-10 rounded-2xl shadow-md"
+        >
+          <h3 className="mb-6 text-2xl font-semibold">Opening Hours</h3>
+
+          {hours.map((h, i) => (
             <div
               key={i}
-              className="
-        p-5 rounded-xl 
-        bg-white shadow border 
-        transition-all duration-300 
-        hover:shadow-xl 
-        hover:-translate-y-1 
-        hover:bg-black 
-        hover:text-white 
-        cursor-pointer
-      "
+              className="flex justify-between py-3 border-b text-base last:border-none"
             >
-              {item}
+              <span className="font-medium">{h.day}</span>
+              <span className="text-gray-600">{h.time}</span>
             </div>
           ))}
-        </div>
-      </motion.div>
-
-      {/* RIGHT CARD */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="bg-white/80 backdrop-blur-lg p-10 rounded-2xl shadow-xl border"
-      >
-        <h3 className="mb-6 text-2xl font-semibold">Opening Hours</h3>
-
-        {hours.map((h, i) => (
-          <div key={i} className="flex justify-between py-3 border-b text-base">
-            <span className="font-medium">{h.day}</span>
-            <span className="text-gray-600">{h.time}</span>
-          </div>
-        ))}
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

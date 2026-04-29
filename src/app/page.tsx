@@ -10,7 +10,7 @@ import FloatingCTA from "@/components/sections/FloatingCTA";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-[#F3EFEA] text-[#1A1A1A]">
       <Header />
       <Hero />
       <CarouselStrip />

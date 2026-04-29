@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   return (
-    <section className="px-8 py-24 bg-gradient-to-b from-[#F8F7F4] to-white">
+    <section className="px-8 py-24 bg-[#ECE7E1]">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}

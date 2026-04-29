@@ -3,7 +3,7 @@
 import ServiceCard from "../cards/ServiceCard";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import SmoothCarousel from "@/components/ui/smooth-carousel";
+
 const tabs = ["All", "Hair", "Skin", "Makeup", "Spa"];
 
 const services = [
@@ -52,32 +52,53 @@ export default function Categories() {
     active === "All" ? services : services.filter((s) => s.category === active);
 
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
-      <p className="text-sm text-rose-500 font-semibold mb-2">OUR SERVICES</p>
+    <section className="bg-[#ECE7E1] py-24 px-6 md:px-10">
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <p className="text-sm text-[#D4AF37] tracking-[0.2em] mb-2">
+            OUR SERVICES
+          </p>
 
-      <h2 className="text-4xl font-bold mb-6">Luxury treatments for you</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-semibold">
+            Luxury treatments for you
+          </h2>
 
-      {/* Tabs */}
-      <div className="flex gap-3 mb-10 flex-wrap">
-        {tabs.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActive(tab)}
-            className={`px-5 py-2 rounded-full border transition ${
-              active === tab ? "bg-black text-white" : "bg-white text-gray-700"
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
+          <p className="text-gray-600 mt-3">
+            Indulge in premium beauty services tailored to perfection
+          </p>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex justify-center flex-wrap gap-3 mb-12">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActive(tab)}
+              className={`px-5 py-2 rounded-full text-sm transition ${
+                active === tab
+                  ? "bg-[#D4AF37] text-black shadow-md"
+                  : "bg-[#FAF8F5] text-gray-600 border border-gray-200 hover:bg-white"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Cards */}
+        <motion.div layout className="grid md:grid-cols-3 gap-8">
+          {filtered.map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -5 }}
+              className="bg-[#FAF8F5] border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl transition"
+            >
+              <ServiceCard {...item} />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-
-      {/* Cards */}
-      <motion.div layout className="grid md:grid-cols-3 gap-6">
-        {filtered.map((item, i) => (
-          <ServiceCard key={i} {...item} />
-        ))}
-      </motion.div>
     </section>
   );
 }
