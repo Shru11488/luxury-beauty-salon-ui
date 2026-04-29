@@ -1,6 +1,7 @@
 "use client";
 
 import { Home, Grid, Settings, ShoppingBag } from "lucide-react";
+import { ReactNode } from "react";
 
 export default function Sidebar() {
   return (
@@ -15,7 +16,7 @@ export default function Sidebar() {
   );
 }
 
-function NavIcon({ icon }) {
+function NavIcon({ icon }: { icon: ReactNode }) {
   return (
     <div className="p-2 rounded-lg hover:bg-gray-100 cursor-pointer">
       {icon}
